@@ -35,7 +35,7 @@ namespace heist
         static bool RecruitLoop(ref bool result)
         {
             Console.WriteLine("");
-            Console.Write($"Add another team member [Y / N]:");
+            Console.Write($"Add another team member [Y / N]: ");
             string loopAnswer = Console.ReadLine().ToLower();
             if (loopAnswer == "y")
             {
@@ -113,10 +113,10 @@ namespace heist
 
                 // User receives report with both values
 
-                Console.WriteLine("            Heist Report:               ");
+                Console.WriteLine("          Heist Report:             ");
                 Console.WriteLine("----------------------------------------");
-                Console.WriteLine($"    Total Team Skill: {totalTeamSkill} ");
-                Console.WriteLine($"   Bank Diffculty Level: {finalLuck}   ");
+                Console.WriteLine($"        Total Team Skill: {totalTeamSkill} ");
+                Console.WriteLine($"      Bank Diffculty Level: {finalLuck}   ");
                 Console.WriteLine("");
 
                 // if/else statement provides user indictation on sucessrate,
@@ -125,7 +125,7 @@ namespace heist
                 // nested conditional for each outcome updates a dictionary value with number
                 // of pass/fail attempts.
                 
-                if (finalLuck >= bankRating)
+                if (finalLuck <= bankRating)
                 {
                     Console.WriteLine("**Heist Outcome:** Success! 100%");
                     if(dict.ContainsKey("pass")){
@@ -155,14 +155,12 @@ namespace heist
             // Method returns user enter value.
             static int HeistScenarios() {
                     
-                    Console.WriteLine("");
-                    Console.Write("Number of times to run propability scenario [1-10]:  ");
-                    int scenarioNum = Convert.ToInt32(Console.ReadLine());
+                    int scenarioNum = 0;
 
-                    while (scenarioNum > 11 || scenarioNum <= 1)
+                    while (scenarioNum >= 10 || scenarioNum <= 1)
                     {
                         Console.WriteLine("");
-                        Console.Write("Number of times to run propability scenario [1-10]:  ");
+                        Console.Write("Number of times to run probability scenario [1-10]:  ");
                         scenarioNum = Convert.ToInt32(Console.ReadLine());
                     }
                     
@@ -192,7 +190,7 @@ namespace heist
                 {
                     Console.WriteLine("");
                     // Scenario # is printed to console to identify attempt number
-                    Console.WriteLine($"    Scenario # {i+1}    ");
+                    Console.WriteLine($"           Scenario # {i+1}         ");
                     Console.WriteLine("");
                     // SuccessRate method is and passed the outcomeRate dictionary
                     // as a reference-type.
@@ -216,10 +214,10 @@ namespace heist
                     switch (rate.Key)
                     {
                         case "pass":
-                            Console.Write("Successful Attempts: ");
+                            Console.Write("Successful Attempts:  ");
                             break;
                         case "fail":
-                            Console.Write("Failed Attempts:     ");
+                            Console.Write("Failed Attempts:      ");
                             break;
                         default:
                             Console.WriteLine("");
@@ -254,7 +252,7 @@ namespace heist
             int teamCount = TeamHeist.Count();
             
             
-            Console.WriteLine($"** Total Team Members: {teamCount} **");
+            Console.WriteLine($"     ** Total Team Members: {teamCount} **");
             Console.WriteLine("");
 
             // HeistCalulator method is called and passed required variables
